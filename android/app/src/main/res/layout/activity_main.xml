@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#101114">
+    <LinearLayout android:orientation="vertical" android:padding="18dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:text="CONNECTFON" android:textSize="28sp" android:textStyle="bold" android:textColor="#FFFFFF"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/status" android:text="Bluetooth: checking…" android:textColor="#B9C0CC" android:textSize="15sp"
+            android:layout_marginTop="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/refresh" android:text="Refresh Bluetooth" android:layout_marginTop="16dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView android:text="PAIRED DEVICES" android:textColor="#8F98A8" android:textStyle="bold" android:layout_marginTop="22dp"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout android:id="@+id/devices" android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView android:text="Diagnostics" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"
+            android:layout_marginTop="24dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/details" android:textColor="#B9C0CC" android:textSize="14sp" android:layout_marginTop="8dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView android:text="Android build: Bluetooth discovery + paired-device diagnostics. HFP/PBAP control depends on Android public APIs and is not faked."
+            android:textColor="#7F8795" android:textSize="12sp" android:layout_marginTop="24dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
