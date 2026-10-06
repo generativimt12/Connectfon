@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: dotnet build Connectfon.sln -c Release --no-restore
       - name: Publish EXE
-        run: dotnet publish src/Connectfon.UI/Connectfon.UI.csproj -c Release -r win-x64 --self-contained false -o publish
+        run: dotnet publish src/Connectfon.UI/Connectfon.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o publish
       - name: Package
         shell: pwsh
         run: Compress-Archive -Path publish\* -DestinationPath Connectfon-win-x64.zip -Force
@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Connectfon-win-x64
-          path: Connectfon-win-x64.zip
+          path: Connectfon-win-x64-single-exe.zip
       - name: Build report
         shell: pwsh
         run: |
