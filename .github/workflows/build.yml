@@ -1,0 +1,36 @@
+name: Windows Build
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore
+        run: dotnet restore Connectfon.sln
+      - name: Build
+        run: dotnet build Connectfon.sln -c Release --no-restore
+      - name: Publish EXE
+        run: dotnet publish src/Connectfon.UI/Connectfon.UI.csproj -c Release -r win-x64 --self-contained false -o publish
+      - name: Package
+        shell: pwsh
+        run: Compress-Archive -Path publish\* -DestinationPath Connectfon-win-x64.zip -Force
+      - name: Upload EXE package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Connectfon-win-x64
+          path: Connectfon-win-x64.zip
+      - name: Build report
+        shell: pwsh
+        run: |
+          "Connectfon Windows build completed on $env:RUNNER_OS" | Out-File build-report.txt
+          dotnet --info | Out-File -Append build-report.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Connectfon-build-report
+          path: build-report.txt
