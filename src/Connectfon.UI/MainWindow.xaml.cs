@@ -15,7 +15,6 @@ public partial class MainWindow : Window
     private PhoneDevice? _selected;
     private DeviceCapabilities? _caps;
     private IReadOnlyList<ContactEntry> _contacts = Array.Empty<ContactEntry>();
-    private bool _updatingAudio;
 
     private sealed record DeviceRow(string Name, string State, string Address, string ProfileText, PhoneDevice Device);
     private sealed record RecentRow(string Name, string Number, string Type, string Time, CallEntry Entry);
@@ -169,7 +168,6 @@ public partial class MainWindow : Window
 
     private void Volume_Changed(object sender, RoutedPropertyChangedEventArgs<double> e)
     {
-        if (_updatingAudio) return;
         try
         {
             var endpoint = new NAudio.CoreAudioApi.MMDeviceEnumerator().GetDefaultAudioEndpoint(NAudio.CoreAudioApi.DataFlow.Render, NAudio.CoreAudioApi.Role.Multimedia);
