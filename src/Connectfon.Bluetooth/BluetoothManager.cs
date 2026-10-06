@@ -70,7 +70,8 @@ public sealed class BluetoothManager : IAsyncDisposable
         var ids = services.Services.Select(s => s.ServiceId.Uuid.ToString()).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
         bool hfp = ids.Any(x => x.StartsWith("0000111f-", StringComparison.OrdinalIgnoreCase) || x.StartsWith("0000111e-", StringComparison.OrdinalIgnoreCase));
         bool pbap = ids.Any(x => x.StartsWith("0000112f-", StringComparison.OrdinalIgnoreCase));
-        bool callHistory = pbap;\n        return new(hfp, pbap, callHistory, ids);
+        bool callHistory = pbap;
+        return new(hfp, pbap, callHistory, ids);
     }
 
     public async Task<RfcommDeviceService?> OpenServiceAsync(PhoneDevice device, Guid uuid)
