@@ -19,12 +19,17 @@ jobs:
         run: dotnet publish src/Connectfon.UI/Connectfon.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o publish
       - name: Package
         shell: pwsh
-        run: Compress-Archive -Path publish\* -DestinationPath Connectfon-win-x64.zip -Force
+        run: $exe = Get-ChildItem publish -Filter Connectfon.exe
+          if (-not $exe) { throw 'Connectfon.exe was not produced' }
+          if ((Get-ChildItem publish | Measure-Object).Count -ne 1) { throw 'Publish folder does not contain exactly one file' }
+          Copy-Item $exe.FullName .\Connectfon.exe
+          Get-FileHash .\Connectfon.exe -Algorithm SHA256 | Format-List
+
       - name: Upload EXE package
         uses: actions/upload-artifact@v4
         with:
           name: Connectfon-win-x64
-          path: Connectfon-win-x64-single-exe.zip
+          path: Connectfon.exe
       - name: Build report
         shell: pwsh
         run: |
