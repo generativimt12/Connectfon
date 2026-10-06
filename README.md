@@ -13,11 +13,13 @@ Build with: `dotnet build Connectfon.sln -c Release`
 
 ## Android
 
-The Android project is under `android/` and builds an APK with the Android SDK/Gradle.
+The Android project is under `android/` and builds a debug APK with Android SDK/Gradle.
 
 Build with: `cd android && gradle :app:assembleDebug`
 
 APK output: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+CI also verifies that the APK exists and uploads it as the `Connectfon-android-debug` artifact.
 
 The Android build intentionally uses public Android Bluetooth APIs. It does **not** fake HFP/PBAP functionality. Android exposes less of the Bluetooth Hands-Free/PBAP client stack to ordinary third-party applications than Windows, so features that require hidden/system Bluetooth APIs must be validated on real hardware before being advertised as supported.
 
