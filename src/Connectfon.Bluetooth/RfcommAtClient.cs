@@ -27,7 +27,7 @@ public sealed class RfcommAtClient : IAsyncDisposable
     public async Task SendAsync(string command, CancellationToken cancellationToken = default)
     {
         if (_writer is null) throw new InvalidOperationException("RFCOMM is not open.");
-        _writer.WriteString(command.EndsWith("", StringComparison.Ordinal) ? command : command + "");
+        _writer.WriteString(command.EndsWith('\r') ? command : command + '\r');
         await _writer.StoreAsync().AsTask(cancellationToken);
     }
 
@@ -44,8 +44,7 @@ public sealed class RfcommAtClient : IAsyncDisposable
                 while (true)
                 {
                     var s = buffer.ToString();
-                    var idx = s.IndexOfAny(new[] {'','
-'});
+                    var idx = s.IndexOfAny(new[] {'\r','\n'});
                     if (idx < 0) break;
                     var line = s[..idx].Trim();
                     buffer.Remove(0, idx + 1);
