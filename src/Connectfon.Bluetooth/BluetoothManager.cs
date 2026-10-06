@@ -36,8 +36,8 @@ public sealed class BluetoothManager : IAsyncDisposable
     {
         if (_watcher is not null) return;
         _watcher = DeviceInformation.CreateWatcher(BluetoothDevice.GetDeviceSelector());
-        _watcher.Added += (_, e) => _ = RefreshDevice(e.Id);
-        _watcher.Updated += (_, e) => _ = RefreshDevice(e.Id);
+        _watcher.Added += async (_, e) => await RefreshDevice(e.Id);
+        _watcher.Updated += async (_, e) => await RefreshDevice(e.Id);
         _watcher.Removed += (_, e) => { _devices.Remove(e.Id); DevicesChanged?.Invoke(this, EventArgs.Empty); };
         _watcher.Start();
     }
