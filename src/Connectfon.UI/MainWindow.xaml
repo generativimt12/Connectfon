@@ -71,7 +71,7 @@
       </TabItem>
       <TabItem Header="Contacts">
        <DockPanel Margin="10"><StackPanel DockPanel.Dock="Top" Orientation="Horizontal"><Button Content="Load phonebook" Click="Contacts_Click"/><TextBox x:Name="ContactSearch" Width="220" Margin="5" TextChanged="ContactSearch_Changed" VerticalContentAlignment="Center"/></StackPanel>
-        <ListBox x:Name="ContactsList" Margin="0,10,0,0" MouseDoubleClick="Contact_DoubleClick"><ListBox.ItemTemplate><DataTemplate><Grid Padding="7"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="{Binding Name}" FontSize="17"/><TextBlock Grid.Column="1" Text="{Binding Number}" Foreground="#91A5B5"/></Grid></DataTemplate></ListBox.ItemTemplate></ListBox>
+        <ListBox x:Name="ContactsList" Margin="0,10,0,0" MouseDoubleClick="Contact_DoubleClick"><ListBox.ItemTemplate><DataTemplate><Grid Margin="7"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="{Binding Name}" FontSize="17"/><TextBlock Grid.Column="1" Text="{Binding Number}" Foreground="#91A5B5"/></Grid></DataTemplate></ListBox.ItemTemplate></ListBox>
        </DockPanel>
       </TabItem>
       <TabItem Header="Recent">
