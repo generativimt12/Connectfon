@@ -75,7 +75,7 @@
        </DockPanel>
       </TabItem>
       <TabItem Header="Recent">
-       <DockPanel Margin="10"><Button DockPanel.Dock="Top" Content="Load call history" Click="Recent_Click"/><ListBox x:Name="RecentList" Margin="0,10,0,0" MouseDoubleClick="Recent_DoubleClick"><ListBox.ItemTemplate><DataTemplate><Grid Padding="7"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><StackPanel><TextBlock Text="{Binding Name}" FontSize="17"/><TextBlock Text="{Binding Number}" Foreground="#91A5B5"/></StackPanel><StackPanel Grid.Column="1"><TextBlock Text="{Binding Type}" HorizontalAlignment="Right"/><TextBlock Text="{Binding Time}" Foreground="#718391"/></StackPanel></Grid></DataTemplate></ListBox.ItemTemplate></ListBox></DockPanel>
+       <DockPanel Margin="10"><Button DockPanel.Dock="Top" Content="Load call history" Click="Recent_Click"/><ListBox x:Name="RecentList" Margin="0,10,0,0" MouseDoubleClick="Recent_DoubleClick"><ListBox.ItemTemplate><DataTemplate><Grid Margin="7"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><StackPanel><TextBlock Text="{Binding Name}" FontSize="17"/><TextBlock Text="{Binding Number}" Foreground="#91A5B5"/></StackPanel><StackPanel Grid.Column="1"><TextBlock Text="{Binding Type}" HorizontalAlignment="Right"/><TextBlock Text="{Binding Time}" Foreground="#718391"/></StackPanel></Grid></DataTemplate></ListBox.ItemTemplate></ListBox></DockPanel>
       </TabItem>
       <TabItem Header="Diagnostics"><TextBox x:Name="DiagnosticsBox" Margin="10" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#0D151C" Foreground="#BBD0DC"/></TabItem>
      </TabControl>
