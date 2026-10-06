@@ -1,3 +1,23 @@
+# 📱 Connectfon — Phone ↔ Computer / Head-Unit Bridge
+
+> A Windows + Android project exploring a practical phone-to-computer Bluetooth experience.
+
+[![Windows](https://img.shields.io/badge/Target-Windows-0078D4?logo=windows&logoColor=white)](https://www.microsoft.com/windows/) [![Android](https://img.shields.io/badge/Target-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/) [![C%23](https://img.shields.io/badge/Windows-C%23-512BD4?logo=.net&logoColor=white)](https://dotnet.microsoft.com/) 
+
+**Two targets, one goal:** make a phone usable from a computer or car-style head unit while clearly separating what public APIs can actually support from what requires real hardware testing.
+
+---
+
+## 🧭 Project map
+
+| Target | Focus |
+|---|---|
+| 🖥️ **Windows** | Bluetooth integration, calls, contacts, recent calls, diagnostics and head-unit UI |
+| 🤖 **Android** | Native UI, permissions, paired devices and Bluetooth/profile diagnostics |
+| 🧪 **Validation** | Real-device testing for HFP/PBAP capabilities |
+
+---
+
 # Connectfon
 
 Connectfon is a Bluetooth phone/head-unit application with two targets:
